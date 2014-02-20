@@ -34,8 +34,6 @@ public:
     
     SDL_Window* m_Window;
     
-    SDL_Surface* m_Screen;
-    
     SDL_Renderer* m_Renderer;
     
 private:

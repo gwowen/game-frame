@@ -11,13 +11,15 @@
 
 playState playState::m_playState;
 
-void playState::Init() {
+void playState::Init( gameEngine* game ) {
     
-    temp = SDL_LoadBMP( "../helloworld.bmp");
+  temp = Texture::textureLoad( "../helloworld.bmp", game->m_Renderer );
     
 }
 
 void playState::Cleanup() {
+
+  SDL_DestroyTexture( temp );
     
 }
 
@@ -51,7 +53,7 @@ void playState::Update( gameEngine* game) {
 }
 
 void playState::Draw( gameEngine* game) {
-    SDL_BlitSurface( temp, NULL, game->m_Screen, NULL );
-    SDL_UpdateWindowSurface( game->m_Window );
+  Texture::textureDraw( temp, game->m_Renderer, 0, 0 );
+  SDL_RenderPresent( game->m_Renderer );
     
 }

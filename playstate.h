@@ -9,11 +9,12 @@
 #define	PLAYSTATE_H
 #include <SDL2/SDL.h>
 #include "gamestate.h"
+#include "graphics.h"
 
 class playState: public gameState {
     
     public:
-        void Init();
+        void Init( gameEngine* game );
         void Cleanup();
         
         void Pause();
@@ -33,7 +34,7 @@ class playState: public gameState {
         private:
             static playState m_playState;
             
-            SDL_Surface* temp;
+            SDL_Texture* temp;
             
     
 };
